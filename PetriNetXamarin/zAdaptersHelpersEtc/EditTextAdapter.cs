@@ -1,36 +1,33 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Android.Content;
 using Android.Graphics;
+using Android.InputMethodServices;
 using Android.Text;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
-using Java.Lang;
+using PetriNetXam;
 
-namespace PetriNetXam
+
+namespace PetriNetXamarin
 {
     public class EditTextAdapter : BaseAdapter
     {
-        private readonly int _cols = SharedObjects.MyPetriNet.NumberOfPlaces;
-        private readonly int _gridCols;
-        private readonly int _gridRows;
-        private readonly int _rows = SharedObjects.MyPetriNet.NumberOfTransitions;
-        private readonly Context context;
-
-
-        private int[] exampleDin =
-        {
-            11, 12, 13, 14,
-            21, 22, 23, 24,
-            31, 32, 33, 34
-        };
-
-        private int k;
+        private int _cols ;
+        private int _rows ;
+        private int _gridCols;
+        private int _gridRows;
+        private String etPrevText = "0";
+        private Context context;
 
         public EditTextAdapter(Context c)
         {
             context = c;
-            _gridCols = _cols + 1; //+1 bo dodatkowe wiersz i kolumna na etykiety
+            _cols = SharedObjects.MyPetriNet.NumberOfPlaces;
+            _rows = SharedObjects.MyPetriNet.NumberOfTransitions;
+
+        _gridCols = _cols + 1; //+1 bo dodatkowe wiersz i kolumna na etykiety
             _gridRows = _rows + 1;
         }
 
@@ -40,7 +37,7 @@ namespace PetriNetXam
             get { return _gridRows*_gridCols; }
         }
 
-        public override Object GetItem(int position)
+        public override Java.Lang.Object GetItem(int position)
         {
             return null;
         }
@@ -75,54 +72,69 @@ namespace PetriNetXam
             editText.SetMaxLines(1);
             editText.SetRawInputType(InputTypes.ClassNumber);
             editText.SetImeActionLabel("Donee", ImeAction.Done);
-            if (position == 2) editText.SetBackgroundColor(new Color(Resource.Color.gridLabels));
 
-            var lstGridView = new List<string>();
-            lstGridView.Add("");
+            //konwerjsa na macierzy 2D na liste do gridview
+            //dodanie etykeit wierszy kolumn i pokolorawnie ich
+            var lstGridView = new List<string>(); 
+            lstGridView.Add("  ");//narozny tile, dwie spacje potem tam mam jednego ifa mniej 
             for (var i = 0; i < _cols; i++)
             {
                 lstGridView.Add("Pl" + (i + 1)); //pierwszy wiersz=etykiety kolumn
             }
 
-
-            //teraz trza pododowadac te wtykeity
+            //pozostale wiersze z danymi + pierwsa kolumna etykeita wiersza
             var j = 1;
-            foreach (var lst in SharedObjects.MyPetriNet.DinMatrix)
+            if (SharedObjects.MyPetriNet.CurrentMatrix=="Din")
             {
-                lstGridView.Add("Tr" + j);
-                var lst2 = lst.ConvertAll(s => s.ToString());
-                lstGridView.AddRange(lst2);
-                j++;
+                foreach (var lst in SharedObjects.MyPetriNet.DinMatrix)
+                {
+                    lstGridView.Add("Tr" + j);//etykietea wiersza
+                    var lst2 = lst.ConvertAll(s => s.ToString());
+                    lstGridView.AddRange(lst2);//zawartosc macierzy
+                    j++;
+                }
+
+            }
+            if (SharedObjects.MyPetriNet.CurrentMatrix == "Dout")
+            {
+                foreach (var lst in SharedObjects.MyPetriNet.DoutMatrix)
+                {
+                    lstGridView.Add("Tr" + j); //etykietea wiersza
+                    var lst2 = lst.ConvertAll(s => s.ToString());
+                    lstGridView.AddRange(lst2); //zawartosc macierzy
+                    j++;
+                }
+            }
+            if (SharedObjects.MyPetriNet.CurrentMatrix == "Dincidence")
+            {
+                foreach (var lst in SharedObjects.MyPetriNet.DincidenceMatrix)
+                {
+                    lstGridView.Add("Tr" + j); //etykietea wiersza
+                    var lst2 = lst.ConvertAll(s => s.ToString());
+                    lstGridView.AddRange(lst2); //zawartosc macierzy
+                    j++;
+                }
             }
 
+            //wypelnianie gridview
             var str = lstGridView[position];
             editText.Text = str;
-            //Toast.MakeText(context, "updated"+k, ToastLength.Short).Show();
-            k++;
 
-            //editText.AfterTextChanged += (sender, args) =>
-            //{
-            //    Toast.MakeText(context, "AfterTextChanged"+k, ToastLength.Short).Show();
-            //    k++;
-            //};
+            //kolorowanie etykiet
 
+            if (position<_gridCols || position%_gridCols==0) //-1 bo position idzie od 0
+            {
+                editText.SetBackgroundColor(new Color(Color.Orange));
+                editText.Enabled = false;
+            }
+
+            #region zdarzenia
             editText.Click += (sender, args) =>
             {
+                // nic nie rob i nie otwieraj klawiatury
                 //Toast.MakeText(context, "click"+k, ToastLength.Short).Show();
-                Toast.MakeText(context, position.ToString(), ToastLength.Short).Show();
-                k++;
-            };
-
-            editText.KeyPress += (sender, e) =>
-            {
-                e.Handled = false;
-                if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
-                {
-                    Toast.MakeText(context, editText.Text, ToastLength.Short).Show();
-                    e.Handled = true;
-                    //Dismiss Keybaord
-                    SharedObjects.MyPetriNet.DinMatrix[0][0] = 10;
-                }
+                //Toast.MakeText(context, position.ToString(), ToastLength.Short).Show();
+                //Dismiss Keybaord
             };
 
             editText.EditorAction += (sender, e) =>
@@ -130,21 +142,36 @@ namespace PetriNetXam
                 e.Handled = false;
                 if (e.ActionId == ImeAction.Done)
                 {
+                    if (editText.Text == "") editText.Text = etPrevText;
                     e.Handled = true;
-                    var row = position/_gridCols; //-1 bo pomijam etykiety w gridview
-                    var col = position%_gridCols;
+                    var row = position / _gridCols; //-1 bo pomijam etykiety w gridview
+                    var col = position % _gridCols;
                     var pos = position;
-                    var str2 = "pos" + pos + " row" + row + " col" + col;
-                    Toast.MakeText(context, str2, ToastLength.Short).Show();
-                    SharedObjects.MyPetriNet.DinMatrix[row - 1][col - 1] = int.Parse(editText.Text);
+                    //var str2 = "pos" + pos + " row" + row + " col" + col;
+                    //Toast.MakeText(context, str2, ToastLength.Short).Show();
+                    if (SharedObjects.MyPetriNet.CurrentMatrix == "Din")
+                        SharedObjects.MyPetriNet.DinMatrix[row - 1][col - 1] = int.Parse(editText.Text);
+                        SharedObjects.MyPetriNet.MakeIncidenceMatrix();
+                    if (SharedObjects.MyPetriNet.CurrentMatrix == "Dout")
+                        SharedObjects.MyPetriNet.DoutMatrix[row - 1][col - 1] = int.Parse(editText.Text);
+                        SharedObjects.MyPetriNet.MakeIncidenceMatrix();
+                    //jak Dincidence to nic nie rob, albo moze przelicz ja
+                    if (SharedObjects.MyPetriNet.CurrentMatrix == "Dincidence")
+                    {
+                        SharedObjects.MyPetriNet.MakeIncidenceMatrix();
+                    }
+                    //Dismiss Keybaord
                 }
             };
 
-            return view;
+            editText.BeforeTextChanged += (sender, e) =>
+            {
+                etPrevText = editText.Text;
+            };
 
-            //String str = thumbIds[position];
-            //editText.Text = str;
-            //return editText;
+            #endregion
+
+            return view;
         }
     }
 }

@@ -67,18 +67,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DincidenceActivity.cs" />
     <Compile Include="DoutMatrixActivity.cs" />
+    <Compile Include="HelpActivity.cs" />
     <Compile Include="zAdaptersHelpersEtc\Helpers.cs" />
     <Compile Include="DinMatrixActivity.cs" />
     <Compile Include="zAdaptersHelpersEtc\EditTextAdapter.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="PetriNet.cs" />
+    <Compile Include="zAdaptersHelpersEtc\PetriNet.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SharedObjects.cs" />
-    <Compile Include="Splash.cs" />
-    <Compile Include="zAdaptersHelpersEtc\TextAdapter.cs" />
-    <Compile Include="View1.cs" />
+    <Compile Include="zAdaptersHelpersEtc\SharedObjects.cs" />
+    <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\SplashScreen.axml">
@@ -87,12 +87,12 @@
     <AndroidResource Include="Resources\layout\GridItem.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\HelpScreen.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <None Include="zzGettingStarted.Xamarin" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\Help.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\DMatrix.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -122,6 +122,14 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\menu\mymenu.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\border.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\RoundedButton.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

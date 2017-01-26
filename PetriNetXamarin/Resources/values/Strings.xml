@@ -2,6 +2,18 @@
 <resources>
   <string name="Hello">Hello World, Click Me!</string>
   <string name="ApplicationName">PetriNetXam</string>
-  <string name="Menu1">111PetriNetXam</string>
-  <string name="Menu2">222PetriNetXam</string>
+  <string name="Menu1">Help</string>
+  <string name="Menu2">About</string>
+  <string name="Menu3">Zeruj Wszystko</string>
+  <string name="About">
+    "Kuba Miszcz 2017\n zielonyeufor@gmail.com</string>
+  <string name="HelpString">"wpisac liczbe miejsc i tranzycji\n
+wpisac wektor znakowan poczatkowych, elementy rozdzielane spacjami\n
+wypelnic macierze Din i Dout\n
+Din -  liczba strzalek wchodzacych do miejsca\n
+Dout -  liczba strzalek wchodzacych do miejsca\n
+\n
+w kolejnych krokach generuje sie aktualny wektor znakowan\n
+\n
+w macierzach liczba kolumn=liczba miejsc, liczba wierszy=liczba tranzycji\n"</string>
 </resources>

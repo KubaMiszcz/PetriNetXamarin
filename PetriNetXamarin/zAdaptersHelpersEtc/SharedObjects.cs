@@ -1,4 +1,4 @@
-namespace PetriNetXam
+namespace PetriNetXamarin
 {
     public class SharedObjects
     {

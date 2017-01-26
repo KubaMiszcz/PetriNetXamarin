@@ -10,14 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView1"
-        android:height="30dp" />
+        android:height="30dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp" />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:id="@+id/linearLayout1">
         <TextView
-            android:text="Liczba miejsc [int]:"
+            android:text="Liczba miejsc: "
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/textView2"
@@ -37,9 +40,10 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:id="@+id/linearLayout2">
         <TextView
-            android:text="Liczba tranzycji [int]:"
+            android:text="Liczba tranzycji: "
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/textView2"
@@ -114,49 +118,126 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/space1"
-        android:minHeight="30dp" />
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/space3"
-        android:layout_marginBottom="10.0dp" />
-    <Button
-        android:text="Symulacja  krok n &gt;&gt;"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnSimulation"
-        android:background="@color/buttonColor"
-        android:textSize="30dp" />
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/space4"
-        android:layout_marginBottom="10.0dp" />
+        android:minHeight="20dp" />
+<!--android:text="Wektory znakowan:"-->
     <TextView
-        android:text="Wektor znakowan aktualnych:"
+        android:text="Wektory znakowan:"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="bottom" />
-    <EditText
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text=" T=n-2: "
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/textView2"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_gravity="center" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etMVectorNminus2"
+            android:layout_marginRight="0.0dp"
+            android:maxLines="1"
+            android:lines="1"
+            android:gravity="center"
+            android:inputType="number"
+            android:digits="1234567890 "
+            android:numeric="integer"
+            android:background="#196619"
+            android:text="1 2 3 a"
+            android:clickable="false"
+            android:editable="false"
+            android:layout_marginBottom="5dp"
+            android:textSize="20dp"
+            android:textColor="#999999" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/etMCurrentVector"
-        android:layout_marginRight="0.0dp"
-        android:maxLines="1"
-        android:lines="1"
-        android:gravity="center"
-        android:inputType="number"
-        android:digits="1234567890 "
-        android:numeric="integer"
-        android:background="@color/editTextColor"
-        android:textSize="30dp"
-        android:text="1 2 3 "
-        android:clickable="false"
-        android:editable="false" />
+        android:gravity="right">
+        <TextView
+            android:text=" T=n-1: "
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/textView2"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_gravity="center" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etMVectorNminus1"
+            android:layout_marginRight="0.0dp"
+            android:maxLines="1"
+            android:lines="1"
+            android:gravity="center"
+            android:inputType="number"
+            android:digits="1234567890 "
+            android:numeric="integer"
+            android:background="#248f24"
+            android:text="1 2 3 a"
+            android:clickable="false"
+            android:editable="false"
+            android:layout_marginBottom="5dp"
+            android:textSize="25dp"
+            android:textColor="#bfbfbf" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text=" T=n: "
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/textView2"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_gravity="center" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etMCurrentVector"
+            android:layout_marginRight="0.0dp"
+            android:maxLines="1"
+            android:lines="1"
+            android:gravity="center"
+            android:inputType="number"
+            android:digits="1234567890 "
+            android:numeric="integer"
+            android:background="@color/editTextColor"
+            android:text="1 2 3 a"
+            android:clickable="false"
+            android:editable="false"
+            android:layout_marginBottom="5dp"
+            android:textSize="30dp" />
+    </LinearLayout>
+<!--android:text="Nastepny  krok n &gt;&gt;"-->
     <Button
-        android:text="Help / About"
+        android:text="Nastepny  krok n &gt;&gt;"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnNextStep"
+        android:textSize="30dp"
+        android:background="@drawable/roundedbutton"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+    <Button
+        android:text="Help"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnHelp" />

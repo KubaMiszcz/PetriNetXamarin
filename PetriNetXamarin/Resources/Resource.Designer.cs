@@ -67,13 +67,19 @@ namespace PetriNetXam
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int border = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int Petri = 2130837505;
+			public const int Icon = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int splash = 2130837506;
+			public const int Petri = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int RoundedButton = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int splash = 2130837508;
 			
 			static Drawable()
 			{
@@ -88,74 +94,86 @@ namespace PetriNetXam
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f070017
+			public const int AboutRootLayout = 2131165207;
+			
 			// aapt resource value: 0x7f070001
 			public const int EditTextTile = 2131165185;
 			
-			// aapt resource value: 0x7f070013
-			public const int btnHelp = 2131165203;
-			
-			// aapt resource value: 0x7f07000b
-			public const int btnSetDin = 2131165195;
-			
-			// aapt resource value: 0x7f07000c
-			public const int btnSetDout = 2131165196;
-			
-			// aapt resource value: 0x7f07000d
-			public const int btnShowIncidenceMatrix = 2131165197;
-			
-			// aapt resource value: 0x7f070010
-			public const int btnSimulation = 2131165200;
-			
-			// aapt resource value: 0x7f070012
-			public const int etMCurrentVector = 2131165202;
-			
-			// aapt resource value: 0x7f070009
-			public const int etMbeginVector = 2131165193;
-			
-			// aapt resource value: 0x7f070005
-			public const int etNumberOfPlaces = 2131165189;
-			
-			// aapt resource value: 0x7f070007
-			public const int etNumberOfTransitions = 2131165191;
-			
-			// aapt resource value: 0x7f070000
-			public const int gridview = 2131165184;
+			// aapt resource value: 0x7f07001a
+			public const int about = 2131165210;
 			
 			// aapt resource value: 0x7f070016
-			public const int help = 2131165206;
+			public const int btnHelp = 2131165206;
+			
+			// aapt resource value: 0x7f070015
+			public const int btnNextStep = 2131165205;
+			
+			// aapt resource value: 0x7f07000e
+			public const int btnSetDin = 2131165198;
+			
+			// aapt resource value: 0x7f07000f
+			public const int btnSetDout = 2131165199;
+			
+			// aapt resource value: 0x7f070010
+			public const int btnShowIncidenceMatrix = 2131165200;
 			
 			// aapt resource value: 0x7f070014
-			public const int imageView1 = 2131165204;
+			public const int etMCurrentVector = 2131165204;
+			
+			// aapt resource value: 0x7f070013
+			public const int etMVectorNminus1 = 2131165203;
+			
+			// aapt resource value: 0x7f070012
+			public const int etMVectorNminus2 = 2131165202;
+			
+			// aapt resource value: 0x7f07000c
+			public const int etMbeginVector = 2131165196;
+			
+			// aapt resource value: 0x7f070008
+			public const int etNumberOfPlaces = 2131165192;
+			
+			// aapt resource value: 0x7f07000a
+			public const int etNumberOfTransitions = 2131165194;
+			
+			// aapt resource value: 0x7f070000
+			public const int gridviewDmatrixes = 2131165184;
+			
+			// aapt resource value: 0x7f070019
+			public const int help = 2131165209;
+			
+			// aapt resource value: 0x7f070002
+			public const int helpMainLayout = 2131165186;
 			
 			// aapt resource value: 0x7f070003
 			public const int linearLayout1 = 2131165187;
 			
-			// aapt resource value: 0x7f070006
-			public const int linearLayout2 = 2131165190;
+			// aapt resource value: 0x7f070009
+			public const int linearLayout2 = 2131165193;
 			
-			// aapt resource value: 0x7f07000a
-			public const int linearLayout3 = 2131165194;
-			
-			// aapt resource value: 0x7f070015
-			public const int new_game = 2131165205;
-			
-			// aapt resource value: 0x7f07000e
-			public const int space1 = 2131165198;
-			
-			// aapt resource value: 0x7f070008
-			public const int space2 = 2131165192;
-			
-			// aapt resource value: 0x7f07000f
-			public const int space3 = 2131165199;
+			// aapt resource value: 0x7f07000d
+			public const int linearLayout3 = 2131165197;
 			
 			// aapt resource value: 0x7f070011
-			public const int space4 = 2131165201;
+			public const int space1 = 2131165201;
 			
-			// aapt resource value: 0x7f070002
-			public const int textView1 = 2131165186;
+			// aapt resource value: 0x7f07000b
+			public const int space2 = 2131165195;
 			
 			// aapt resource value: 0x7f070004
-			public const int textView2 = 2131165188;
+			public const int splashImg = 2131165188;
+			
+			// aapt resource value: 0x7f070005
+			public const int textView1 = 2131165189;
+			
+			// aapt resource value: 0x7f070007
+			public const int textView2 = 2131165191;
+			
+			// aapt resource value: 0x7f070006
+			public const int textViewHelp = 2131165190;
+			
+			// aapt resource value: 0x7f070018
+			public const int zeroAll = 2131165208;
 			
 			static Id()
 			{
@@ -177,7 +195,7 @@ namespace PetriNetXam
 			public const int GridItem = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int Help = 2130903042;
+			public const int HelpScreen = 2130903042;
 			
 			// aapt resource value: 0x7f030003
 			public const int Main = 2130903043;
@@ -214,17 +232,26 @@ namespace PetriNetXam
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f050005
+			public const int About = 2131034117;
+			
 			// aapt resource value: 0x7f050001
 			public const int ApplicationName = 2131034113;
 			
 			// aapt resource value: 0x7f050000
 			public const int Hello = 2131034112;
 			
+			// aapt resource value: 0x7f050006
+			public const int HelpString = 2131034118;
+			
 			// aapt resource value: 0x7f050002
 			public const int Menu1 = 2131034114;
 			
 			// aapt resource value: 0x7f050003
 			public const int Menu2 = 2131034115;
+			
+			// aapt resource value: 0x7f050004
+			public const int Menu3 = 2131034116;
 			
 			static String()
 			{
