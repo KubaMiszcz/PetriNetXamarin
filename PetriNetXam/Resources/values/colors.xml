@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+  <color name="editTextColor">#2eb82e</color>
+  <color name="buttonColor">#3399ff</color>
+  <color name="gridLabels">#6699ff</color>
+</resources>
