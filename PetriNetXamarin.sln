@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetriNetXam", "PetriNetXam\PetriNetXam.csproj", "{854A0067-31E5-4270-B875-FF0F53216F1F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetriNetXamarin", "PetriNetXamarin\PetriNetXamarin.csproj", "{854A0067-31E5-4270-B875-FF0F53216F1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
