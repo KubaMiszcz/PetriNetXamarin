@@ -73,13 +73,10 @@ namespace PetriNetXam
 			public const int Icon = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int Petri = 2130837506;
+			public const int RoundedButton = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int RoundedButton = 2130837507;
-			
-			// aapt resource value: 0x7f020004
-			public const int splash = 2130837508;
+			public const int splash = 2130837507;
 			
 			static Drawable()
 			{
