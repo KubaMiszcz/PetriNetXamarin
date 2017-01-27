@@ -23,8 +23,16 @@ namespace PetriNetXamarin
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.SplashScreen);
             var lay = FindViewById<LinearLayout>(Resource.Id.AboutRootLayout);
+            var img = FindViewById<ImageView>(Resource.Id.splashImg);
 
+			
             lay.Click += (sender, e) =>
+            {
+                //close activity
+                Finish();
+            };
+
+            img.Click += (sender, e) =>
             {
                 //close activity
                 Finish();
